@@ -1,3 +1,4 @@
+import log_function as log
 class GameBoard:
 
     '''
@@ -23,12 +24,17 @@ class GameBoard:
     Prints the game board
     '''
     def print_board(self):
-        board = [['.' for i in range(self.size)] for j in range(self.size)]
-        for i in range(self.size):
-            for j in range(self.size):
-                if (i,j) in self.live_cells:
-                    board[i][j] = '*'
-        print(self.format_board(board))
+        try:
+            board = [['.' for i in range(self.size)] for j in range(self.size)]
+            for i in range(self.size):
+                for j in range(self.size):
+                    if (i,j) in self.live_cells:
+                        board[i][j] = '*'
+            print(self.format_board(board))
+            log.log_function('print_board', True)
+        except:
+            log.log_function('print_board', False)
+
 
         
 
